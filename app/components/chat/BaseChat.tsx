@@ -64,7 +64,7 @@ export const BaseChat = React.forwardRef<HTMLDivElement, BaseChatProps>(
         ref={ref}
         className={classNames(
           styles.BaseChat,
-          'relative flex h-full w-full overflow-hidden bg-bolt-elements-background-depth-1',
+          'relative flex h-full w-full overflow-hidden bg-startgpt-elements-background-depth-1',
         )}
         data-chat-visible={showChat}
       >
@@ -73,10 +73,10 @@ export const BaseChat = React.forwardRef<HTMLDivElement, BaseChatProps>(
           <div className={classNames(styles.Chat, 'flex flex-col flex-grow min-w-[var(--chat-min-width)] h-full')}>
             {!chatStarted && (
               <div id="intro" className="mt-[26vh] max-w-chat mx-auto">
-                <h1 className="text-5xl text-center font-bold text-bolt-elements-textPrimary mb-2">
+                <h1 className="text-5xl text-center font-bold text-startgpt-elements-textPrimary mb-2">
                   Where ideas begin
                 </h1>
-                <p className="mb-4 text-center text-bolt-elements-textSecondary">
+                <p className="mb-4 text-center text-startgpt-elements-textSecondary">
                   Bring ideas to life in seconds or get help on existing projects.
                 </p>
               </div>
@@ -105,12 +105,12 @@ export const BaseChat = React.forwardRef<HTMLDivElement, BaseChatProps>(
               >
                 <div
                   className={classNames(
-                    'shadow-sm border border-bolt-elements-borderColor bg-bolt-elements-prompt-background backdrop-filter backdrop-blur-[8px] rounded-lg overflow-hidden',
+                    'shadow-sm border border-startgpt-elements-borderColor bg-startgpt-elements-prompt-background backdrop-filter backdrop-blur-[8px] rounded-lg overflow-hidden',
                   )}
                 >
                   <textarea
                     ref={textareaRef}
-                    className={`w-full pl-4 pt-4 pr-16 focus:outline-none resize-none text-md text-bolt-elements-textPrimary placeholder-bolt-elements-textTertiary bg-transparent`}
+                    className={`w-full pl-4 pt-4 pr-16 focus:outline-none resize-none text-md text-startgpt-elements-textPrimary placeholder-startgpt-elements-textTertiary bg-transparent`}
                     onKeyDown={(event) => {
                       if (event.key === 'Enter') {
                         if (event.shiftKey) {
@@ -130,7 +130,7 @@ export const BaseChat = React.forwardRef<HTMLDivElement, BaseChatProps>(
                       minHeight: TEXTAREA_MIN_HEIGHT,
                       maxHeight: TEXTAREA_MAX_HEIGHT,
                     }}
-                    placeholder="How can Bolt help you today?"
+                    placeholder="How can Startgpt help you today?"
                     translate="no"
                   />
                   <ClientOnly>
@@ -156,32 +156,32 @@ export const BaseChat = React.forwardRef<HTMLDivElement, BaseChatProps>(
                         disabled={input.length === 0 || enhancingPrompt}
                         className={classNames({
                           'opacity-100!': enhancingPrompt,
-                          'text-bolt-elements-item-contentAccent! pr-1.5 enabled:hover:bg-bolt-elements-item-backgroundAccent!':
+                          'text-startgpt-elements-item-contentAccent! pr-1.5 enabled:hover:bg-startgpt-elements-item-backgroundAccent!':
                             promptEnhanced,
                         })}
                         onClick={() => enhancePrompt?.()}
                       >
                         {enhancingPrompt ? (
                           <>
-                            <div className="i-svg-spinners:90-ring-with-bg text-bolt-elements-loader-progress text-xl"></div>
+                            <div className="i-svg-spinners:90-ring-with-bg text-startgpt-elements-loader-progress text-xl"></div>
                             <div className="ml-1.5">Enhancing prompt...</div>
                           </>
                         ) : (
                           <>
-                            <div className="i-bolt:stars text-xl"></div>
+                            <div className="i-startgpt:stars text-xl"></div>
                             {promptEnhanced && <div className="ml-1.5">Prompt enhanced</div>}
                           </>
                         )}
                       </IconButton>
                     </div>
                     {input.length > 3 ? (
-                      <div className="text-xs text-bolt-elements-textTertiary">
+                      <div className="text-xs text-startgpt-elements-textTertiary">
                         Use <kbd className="kdb">Shift</kbd> + <kbd className="kdb">Return</kbd> for a new line
                       </div>
                     ) : null}
                   </div>
                 </div>
-                <div className="bg-bolt-elements-background-depth-1 pb-6">{/* Ghost Element */}</div>
+                <div className="bg-startgpt-elements-background-depth-1 pb-6">{/* Ghost Element */}</div>
               </div>
             </div>
             {!chatStarted && (
@@ -194,7 +194,7 @@ export const BaseChat = React.forwardRef<HTMLDivElement, BaseChatProps>(
                         onClick={(event) => {
                           sendMessage?.(event, examplePrompt.text);
                         }}
-                        className="group flex items-center w-full gap-2 justify-center bg-transparent text-bolt-elements-textTertiary hover:text-bolt-elements-textPrimary transition-theme"
+                        className="group flex items-center w-full gap-2 justify-center bg-transparent text-startgpt-elements-textTertiary hover:text-startgpt-elements-textPrimary transition-theme"
                       >
                         {examplePrompt.text}
                         <div className="i-ph:arrow-bend-down-left" />
