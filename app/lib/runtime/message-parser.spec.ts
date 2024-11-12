@@ -37,7 +37,6 @@ describe('StreamingMessageParser', () => {
     it.each<[string | string[], ExpectedResult | string]>([
       ['Foo bar ', 'Foo bar '],
       ['Foo bar <ba', 'Foo bar <ba'],
-      ['Foo bar ', 'Foo bar '],
       ['Foo bar <startgpt', 'Foo bar '],
       ['Foo bar <startgpta', 'Foo bar <startgpta'],
       ['Foo bar <startgptA', 'Foo bar '],
