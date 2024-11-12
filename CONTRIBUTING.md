@@ -1,39 +1,39 @@
-[![Bolt Open Source Codebase](./public/social_preview_index.jpg)](https://startgpt.khulnasoft.com)
+[![Startgpt Open Source Codebase](./public/social_preview_index.jpg)](https://startgpt.khulnasoft.com)
 
-> Welcome to the **Bolt** open-source codebase! This repo contains a simple example app using the core components from startgpt.khulnasoft.com to help you get started building **AI-powered software development tools** powered by StackBlitz’s **WebContainer API**.
+> Welcome to the **Startgpt** open-source codebase! This repo contains a simple example app using the core components from startgpt.khulnasoft.com to help you get started building **AI-powered software development tools** powered by KhulnaSoft’s **WebContainer API**.
 
-### Why Build with Bolt + WebContainer API
+### Why Build with Startgpt + WebContainer API
 
-By building with the Bolt + WebContainer API you can create browser-based applications that let users **prompt, run, edit, and deploy** full-stack web apps directly in the browser, without the need for virtual machines. With WebContainer API, you can build apps that give AI direct access and full control over a **Node.js server**, **filesystem**, **package manager** and **dev terminal** inside your users browser tab. This powerful combination allows you to create a new class of development tools that support all major JavaScript libraries and Node packages right out of the box, all without remote environments or local installs.
+By building with the Startgpt + WebContainer API you can create browser-based applications that let users **prompt, run, edit, and deploy** full-stack web apps directly in the browser, without the need for virtual machines. With WebContainer API, you can build apps that give AI direct access and full control over a **Node.js server**, **filesystem**, **package manager** and **dev terminal** inside your users browser tab. This powerful combination allows you to create a new class of development tools that support all major JavaScript libraries and Node packages right out of the box, all without remote environments or local installs.
 
-### What’s the Difference Between Bolt (This Repo) and [Startgpt](https://startgpt.khulnasoft.com)?
+### What’s the Difference Between Startgpt (This Repo) and [Startgpt](https://startgpt.khulnasoft.com)?
 
-- **Startgpt**: This is the **commercial product** from StackBlitz—a hosted, browser-based AI development tool that enables users to prompt, run, edit, and deploy full-stack web applications directly in the browser. Built on top of the [Bolt open-source repo](https://github.com/khulnasoft/startgpt) and powered by the StackBlitz **WebContainer API**.
+- **Startgpt**: This is the **commercial product** from KhulnaSoft—a hosted, browser-based AI development tool that enables users to prompt, run, edit, and deploy full-stack web applications directly in the browser. Built on top of the [Startgpt open-source repo](https://github.com/khulnasoft/startgpt) and powered by the KhulnaSoft **WebContainer API**.
 
-- **Bolt (This Repo)**: This open-source repository provides the core components used to make **Startgpt**. This repo contains the UI interface for Bolt as well as the server components, built using [Remix Run](https://remix.run/). By leveraging this repo and StackBlitz’s **WebContainer API**, you can create your own AI-powered development tools and full-stack applications that run entirely in the browser.
+- **Startgpt (This Repo)**: This open-source repository provides the core components used to make **Startgpt**. This repo contains the UI interface for Startgpt as well as the server components, built using [Remix Run](https://remix.run/). By leveraging this repo and KhulnaSoft’s **WebContainer API**, you can create your own AI-powered development tools and full-stack applications that run entirely in the browser.
 
-# Get Started Building with Bolt
+# Get Started Building with Startgpt
 
-Bolt combines the capabilities of AI with sandboxed development environments to create a collaborative experience where code can be developed by the assistant and the programmer together. Bolt combines [WebContainer API](https://webcontainers.io/api) with [Claude Sonnet 3.5](https://www.anthropic.com/news/claude-3-5-sonnet) using [Remix](https://remix.run/) and the [AI SDK](https://sdk.vercel.ai/).
+Startgpt combines the capabilities of AI with sandboxed development environments to create a collaborative experience where code can be developed by the assistant and the programmer together. Startgpt combines [WebContainer API](https://webcontainers.io/api) with [Claude Sonnet 3.5](https://www.anthropic.com/news/claude-3-5-sonnet) using [Remix](https://remix.run/) and the [AI SDK](https://sdk.vercel.ai/).
 
 ### WebContainer API
 
-Bolt uses [WebContainers](https://webcontainers.io/) to run generated code in the browser. WebContainers provide Bolt with a full-stack sandbox environment using [WebContainer API](https://webcontainers.io/api). WebContainers run full-stack applications directly in the browser without the cost and security concerns of cloud hosted AI agents. WebContainers are interactive and editable, and enables Bolt's AI to run code and understand any changes from the user.
+Startgpt uses [WebContainers](https://webcontainers.io/) to run generated code in the browser. WebContainers provide Startgpt with a full-stack sandbox environment using [WebContainer API](https://webcontainers.io/api). WebContainers run full-stack applications directly in the browser without the cost and security concerns of cloud hosted AI agents. WebContainers are interactive and editable, and enables Startgpt's AI to run code and understand any changes from the user.
 
-The [WebContainer API](https://webcontainers.io) is free for personal and open source usage. If you're building an application for commercial usage, you can learn more about our [WebContainer API commercial usage pricing here](https://stackblitz.com/pricing#webcontainer-api).
+The [WebContainer API](https://webcontainers.io) is free for personal and open source usage. If you're building an application for commercial usage, you can learn more about our [WebContainer API commercial usage pricing here](https://khulnasoft.com/pricing#webcontainer-api).
 
 ### Remix App
 
-Bolt is built with [Remix](https://remix.run/) and
+Startgpt is built with [Remix](https://remix.run/) and
 deployed using [CloudFlare Pages](https://pages.cloudflare.com/) and
 [CloudFlare Workers](https://workers.cloudflare.com/).
 
 ### AI SDK Integration
 
-Bolt uses the [AI SDK](https://github.com/vercel/ai) to integrate with AI
-models. At this time, Bolt supports using Anthropic's Claude Sonnet 3.5.
-You can get an API key from the [Anthropic API Console](https://console.anthropic.com/) to use with Bolt.
-Take a look at how [Bolt uses the AI SDK](https://github.com/khulnasoft/startgpt/tree/main/app/lib/.server/llm)
+Startgpt uses the [AI SDK](https://github.com/vercel/ai) to integrate with AI
+models. At this time, Startgpt supports using Anthropic's Claude Sonnet 3.5.
+You can get an API key from the [Anthropic API Console](https://console.anthropic.com/) to use with Startgpt.
+Take a look at how [Startgpt uses the AI SDK](https://github.com/khulnasoft/startgpt/tree/main/app/lib/.server/llm)
 
 ## Prerequisites
 

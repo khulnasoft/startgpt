@@ -1,4 +1,4 @@
-export interface BoltArtifactData {
+export interface StartgptArtifactData {
   id: string;
   title: string;
 }
