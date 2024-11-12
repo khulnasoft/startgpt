@@ -5,7 +5,7 @@ import { Chat } from '~/components/chat/Chat.client';
 import { Header } from '~/components/header/Header';
 
 export const meta: MetaFunction = () => {
-  return [{ title: 'Startgpt' }, { name: 'description', content: 'Talk with Startgpt, an AI assistant from KhulnaSoft' }];
+  return [{ title: 'StartGpt' }, { name: 'description', content: 'Talk with StartGpt, an AI assistant from KhulnaSoft' }];
 };
 
 export const loader = () => json({});
