@@ -1,6 +1,7 @@
 {
   "name": "startgpt",
   "description": "KhulnaSoft AI Agent",
+  "version": "1.0.0",
   "private": true,
   "license": "MIT",
   "packageManager": "pnpm@9.4.0",
