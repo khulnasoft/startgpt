@@ -28,6 +28,7 @@ export interface ParserCallbacks {
   onArtifactOpen?: ArtifactCallback;
   onArtifactClose?: ArtifactCallback;
   onActionOpen?: ActionCallback;
+  onActionStream?: ActionCallback;
   onActionClose?: ActionCallback;
 }
 
@@ -118,6 +119,21 @@ export class StreamingMessageParser {
 
             i = closeIndex + ARTIFACT_ACTION_TAG_CLOSE.length;
           } else {
+            if ('type' in currentAction && currentAction.type === 'file') {
+              const content = input.slice(i);
+
+              this._options.callbacks?.onActionStream?.({
+                artifactId: currentArtifact.id,
+                messageId,
+                actionId: String(state.actionId - 1),
+                action: {
+                  ...(currentAction as FileAction),
+                  content,
+                  filePath: currentAction.filePath,
+                },
+              });
+            }
+
             break;
           }
         } else {
@@ -256,7 +272,7 @@ export class StreamingMessageParser {
       }
 
       (actionAttributes as FileAction).filePath = filePath;
-    } else if (actionType !== 'shell') {
+    } else if (!['shell', 'start'].includes(actionType)) {
       logger.warn(`Unknown action type '${actionType}'`);
     }
 

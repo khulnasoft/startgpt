@@ -13,6 +13,10 @@ export interface ShellAction extends BaseAction {
   type: 'shell';
 }
 
-export type StartgptAction = FileAction | ShellAction;
+export interface StartAction extends BaseAction {
+  type: 'start';
+}
+
+export type StartgptAction = FileAction | ShellAction | StartAction;
 
 export type StartgptActionData = StartgptAction | BaseAction;

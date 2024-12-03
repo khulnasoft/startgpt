@@ -1,7 +1,7 @@
 import { useStore } from '@nanostores/react';
 import { motion, type HTMLMotionProps, type Variants } from 'framer-motion';
 import { computed } from 'nanostores';
-import { memo, useCallback, useEffect } from 'react';
+import { memo, useCallback, useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 import {
   type OnChangeCallback as OnEditorChange,
@@ -16,6 +16,7 @@ import { cubicEasingFn } from '~/utils/easings';
 import { renderLogger } from '~/utils/logger';
 import { EditorPanel } from './EditorPanel';
 import { Preview } from './Preview';
+import useViewport from '~/lib/hooks';
 
 interface WorkspaceProps {
   chatStarted?: boolean;
@@ -55,6 +56,8 @@ const workbenchVariants = {
 export const Workbench = memo(({ chatStarted, isStreaming }: WorkspaceProps) => {
   renderLogger.trace('Workbench');
 
+  const [isSyncing, setIsSyncing] = useState(false);
+
   const hasPreview = useStore(computed(workbenchStore.previews, (previews) => previews.length > 0));
   const showWorkbench = useStore(workbenchStore.showWorkbench);
   const selectedFile = useStore(workbenchStore.selectedFile);
@@ -62,6 +65,8 @@ export const Workbench = memo(({ chatStarted, isStreaming }: WorkspaceProps) => 
   const unsavedFiles = useStore(workbenchStore.unsavedFiles);
   const files = useStore(workbenchStore.files);
   const selectedView = useStore(workbenchStore.currentView);
+
+  const isSmallViewport = useViewport(1024);
 
   const setSelectedView = (view: WorkbenchViewType) => {
     workbenchStore.currentView.set(view);
@@ -99,6 +104,21 @@ export const Workbench = memo(({ chatStarted, isStreaming }: WorkspaceProps) => 
     workbenchStore.resetCurrentDocument();
   }, []);
 
+  const handleSyncFiles = useCallback(async () => {
+    setIsSyncing(true);
+
+    try {
+      const directoryHandle = await window.showDirectoryPicker();
+      await workbenchStore.syncFiles(directoryHandle);
+      toast.success('Files synced successfully');
+    } catch (error) {
+      console.error('Error syncing files:', error);
+      toast.error('Failed to sync files');
+    } finally {
+      setIsSyncing(false);
+    }
+  }, []);
+
   return (
     chatStarted && (
       <motion.div
@@ -111,26 +131,76 @@ export const Workbench = memo(({ chatStarted, isStreaming }: WorkspaceProps) => 
           className={classNames(
             'fixed top-[calc(var(--header-height)+1.5rem)] bottom-6 w-[var(--workbench-inner-width)] mr-4 z-0 transition-[left,width] duration-200 startgpt-ease-cubic-bezier',
             {
+              'w-full': isSmallViewport,
+              'left-0': showWorkbench && isSmallViewport,
               'left-[var(--workbench-left)]': showWorkbench,
               'left-[100%]': !showWorkbench,
             },
           )}
         >
-          <div className="absolute inset-0 px-6">
+          <div className="absolute inset-0 px-2 lg:px-6">
             <div className="h-full flex flex-col bg-startgpt-elements-background-depth-2 border border-startgpt-elements-borderColor shadow-sm rounded-lg overflow-hidden">
               <div className="flex items-center px-3 py-2 border-b border-startgpt-elements-borderColor">
                 <Slider selected={selectedView} options={sliderOptions} setSelected={setSelectedView} />
                 <div className="ml-auto" />
                 {selectedView === 'code' && (
-                  <PanelHeaderButton
-                    className="mr-1 text-sm"
-                    onClick={() => {
-                      workbenchStore.toggleTerminal(!workbenchStore.showTerminal.get());
-                    }}
-                  >
-                    <div className="i-ph:terminal" />
-                    Toggle Terminal
-                  </PanelHeaderButton>
+                  <div className="flex overflow-y-auto">
+                    <PanelHeaderButton
+                      className="mr-1 text-sm"
+                      onClick={() => {
+                        workbenchStore.downloadZip();
+                      }}
+                    >
+                      <div className="i-ph:code" />
+                      Download Code
+                    </PanelHeaderButton>
+                    <PanelHeaderButton className="mr-1 text-sm" onClick={handleSyncFiles} disabled={isSyncing}>
+                      {isSyncing ? <div className="i-ph:spinner" /> : <div className="i-ph:cloud-arrow-down" />}
+                      {isSyncing ? 'Syncing...' : 'Sync Files'}
+                    </PanelHeaderButton>
+                    <PanelHeaderButton
+                      className="mr-1 text-sm"
+                      onClick={() => {
+                        workbenchStore.toggleTerminal(!workbenchStore.showTerminal.get());
+                      }}
+                    >
+                      <div className="i-ph:terminal" />
+                      Toggle Terminal
+                    </PanelHeaderButton>
+                    <PanelHeaderButton
+                      className="mr-1 text-sm"
+                      onClick={() => {
+                        const repoName = prompt(
+                          'Please enter a name for your new GitHub repository:',
+                          'startgpt-generated-project',
+                        );
+
+                        if (!repoName) {
+                          alert('Repository name is required. Push to GitHub cancelled.');
+                          return;
+                        }
+
+                        const githubUsername = prompt('Please enter your GitHub username:');
+
+                        if (!githubUsername) {
+                          alert('GitHub username is required. Push to GitHub cancelled.');
+                          return;
+                        }
+
+                        const githubToken = prompt('Please enter your GitHub personal access token:');
+
+                        if (!githubToken) {
+                          alert('GitHub token is required. Push to GitHub cancelled.');
+                          return;
+                        }
+
+                        workbenchStore.pushToGitHub(repoName, githubUsername, githubToken);
+                      }}
+                    >
+                      <div className="i-ph:github-logo" />
+                      Push to GitHub
+                    </PanelHeaderButton>
+                  </div>
                 )}
                 <IconButton
                   icon="i-ph:x-circle"
@@ -173,7 +243,6 @@ export const Workbench = memo(({ chatStarted, isStreaming }: WorkspaceProps) => 
     )
   );
 });
-
 interface ViewProps extends HTMLMotionProps<'div'> {
   children: JSX.Element;
 }

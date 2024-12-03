@@ -1,95 +1,109 @@
-[![Startgpt Open Source Codebase](./public/social_preview_index.jpg)](https://startgpt.khulnasoft.com)
+# Contributing to oTToDev
 
-> Welcome to the **Startgpt** open-source codebase! This repo contains a simple example app using the core components from startgpt.khulnasoft.com to help you get started building **AI-powered software development tools** powered by KhulnaSoft’s **WebContainer API**.
+First off, thank you for considering contributing to oTToDev! This fork aims to expand the capabilities of the original project by integrating multiple LLM providers and enhancing functionality. Every contribution helps make oTToDev a better tool for developers worldwide.
 
-### Why Build with Startgpt + WebContainer API
+## 📋 Table of Contents
+- [Code of Conduct](#code-of-conduct)
+- [How Can I Contribute?](#how-can-i-contribute)
+- [Pull Request Guidelines](#pull-request-guidelines)
+- [Coding Standards](#coding-standards)
+- [Development Setup](#development-setup)
+- [Deploymnt with Docker](#docker-deployment-documentation)
+- [Project Structure](#project-structure)
 
-By building with the Startgpt + WebContainer API you can create browser-based applications that let users **prompt, run, edit, and deploy** full-stack web apps directly in the browser, without the need for virtual machines. With WebContainer API, you can build apps that give AI direct access and full control over a **Node.js server**, **filesystem**, **package manager** and **dev terminal** inside your users browser tab. This powerful combination allows you to create a new class of development tools that support all major JavaScript libraries and Node packages right out of the box, all without remote environments or local installs.
+## Code of Conduct
 
-### What’s the Difference Between Startgpt (This Repo) and [Startgpt](https://startgpt.khulnasoft.com)?
+This project and everyone participating in it is governed by our Code of Conduct. By participating, you are expected to uphold this code. Please report unacceptable behavior to the project maintainers.
 
-- **Startgpt**: This is the **commercial product** from KhulnaSoft—a hosted, browser-based AI development tool that enables users to prompt, run, edit, and deploy full-stack web applications directly in the browser. Built on top of the [Startgpt open-source repo](https://github.com/khulnasoft/startgpt) and powered by the KhulnaSoft **WebContainer API**.
+## How Can I Contribute?
 
-- **Startgpt (This Repo)**: This open-source repository provides the core components used to make **Startgpt**. This repo contains the UI interface for Startgpt as well as the server components, built using [Remix Run](https://remix.run/). By leveraging this repo and KhulnaSoft’s **WebContainer API**, you can create your own AI-powered development tools and full-stack applications that run entirely in the browser.
+### 🐞 Reporting Bugs and Feature Requests
+- Check the issue tracker to avoid duplicates
+- Use the issue templates when available
+- Include as much relevant information as possible
+- For bugs, add steps to reproduce the issue
 
-# Get Started Building with Startgpt
+### 🔧 Code Contributions
+1. Fork the repository
+2. Create a new branch for your feature/fix
+3. Write your code
+4. Submit a pull request
 
-Startgpt combines the capabilities of AI with sandboxed development environments to create a collaborative experience where code can be developed by the assistant and the programmer together. Startgpt combines [WebContainer API](https://webcontainers.io/api) with [Claude Sonnet 3.5](https://www.anthropic.com/news/claude-3-5-sonnet) using [Remix](https://remix.run/) and the [AI SDK](https://sdk.vercel.ai/).
+### ✨ Becoming a Core Contributor
+We're looking for dedicated contributors to help maintain and grow this project. If you're interested in becoming a core contributor, please fill out our [Contributor Application Form](https://forms.gle/TBSteXSDCtBDwr5m7).
 
-### WebContainer API
+## Pull Request Guidelines
 
-Startgpt uses [WebContainers](https://webcontainers.io/) to run generated code in the browser. WebContainers provide Startgpt with a full-stack sandbox environment using [WebContainer API](https://webcontainers.io/api). WebContainers run full-stack applications directly in the browser without the cost and security concerns of cloud hosted AI agents. WebContainers are interactive and editable, and enables Startgpt's AI to run code and understand any changes from the user.
+### 📝 PR Checklist
+- [ ] Branch from the main branch
+- [ ] Update documentation if needed
+- [ ] Manually verify all new functionality works as expected
+- [ ] Keep PRs focused and atomic
 
-The [WebContainer API](https://webcontainers.io) is free for personal and open source usage. If you're building an application for commercial usage, you can learn more about our [WebContainer API commercial usage pricing here](https://khulnasoft.com/pricing#webcontainer-api).
+### 👀 Review Process
+1. Manually test the changes
+2. At least one maintainer review required
+3. Address all review comments
+4. Maintain clean commit history
 
-### Remix App
+## Coding Standards
 
-Startgpt is built with [Remix](https://remix.run/) and
-deployed using [CloudFlare Pages](https://pages.cloudflare.com/) and
-[CloudFlare Workers](https://workers.cloudflare.com/).
+### 💻 General Guidelines
+- Follow existing code style
+- Comment complex logic
+- Keep functions focused and small
+- Use meaningful variable names
+- Lint your code. This repo contains a pre-commit-hook that will verify your code is linted properly, 
+so set up your IDE to do that for you!
 
-### AI SDK Integration
+## Development Setup
 
-Startgpt uses the [AI SDK](https://github.com/vercel/ai) to integrate with AI
-models. At this time, Startgpt supports using Anthropic's Claude Sonnet 3.5.
-You can get an API key from the [Anthropic API Console](https://console.anthropic.com/) to use with Startgpt.
-Take a look at how [Startgpt uses the AI SDK](https://github.com/khulnasoft/startgpt/tree/main/app/lib/.server/llm)
-
-## Prerequisites
-
-Before you begin, ensure you have the following installed:
-
-- Node.js (v20.15.1)
-- pnpm (v9.4.0)
-
-## Setup
-
-1. Clone the repository (if you haven't already):
-
+### 🔄 Initial Setup
+1. Clone the repository:
 ```bash
 git clone https://github.com/khulnasoft/startgpt.git
 ```
 
 2. Install dependencies:
-
 ```bash
 pnpm install
 ```
 
-3. Create a `.env.local` file in the root directory and add your Anthropic API key:
-
-```
+3. Set up environment variables:
+   - Rename `.env.example` to `.env.local`
+   - Add your LLM API keys (only set the ones you plan to use):
+```bash
+GROQ_API_KEY=XXX
+HuggingFace_API_KEY=XXX
+OPENAI_API_KEY=XXX
 ANTHROPIC_API_KEY=XXX
+...
 ```
-
-Optionally, you can set the debug level:
-
-```
+   - Optionally set debug level:
+```bash
 VITE_LOG_LEVEL=debug
 ```
 
+   - Optionally set context size:
+```bash
+DEFAULT_NUM_CTX=32768
+```
+
+Some Example Context Values for the qwen2.5-coder:32b models are.
+ 
+* DEFAULT_NUM_CTX=32768 - Consumes 36GB of VRAM
+* DEFAULT_NUM_CTX=24576 - Consumes 32GB of VRAM
+* DEFAULT_NUM_CTX=12288 - Consumes 26GB of VRAM
+* DEFAULT_NUM_CTX=6144 - Consumes 24GB of VRAM
+
 **Important**: Never commit your `.env.local` file to version control. It's already included in .gitignore.
 
-## Available Scripts
-
-- `pnpm run dev`: Starts the development server.
-- `pnpm run build`: Builds the project.
-- `pnpm run start`: Runs the built application locally using Wrangler Pages. This script uses `bindings.sh` to set up necessary bindings so you don't have to duplicate environment variables.
-- `pnpm run preview`: Builds the project and then starts it locally, useful for testing the production build. Note, HTTP streaming currently doesn't work as expected with `wrangler pages dev`.
-- `pnpm test`: Runs the test suite using Vitest.
-- `pnpm run typecheck`: Runs TypeScript type checking.
-- `pnpm run typegen`: Generates TypeScript types using Wrangler.
-- `pnpm run deploy`: Builds the project and deploys it to Cloudflare Pages.
-
-## Development
-
-To start the development server:
-
+### 🚀 Running the Development Server
 ```bash
 pnpm run dev
 ```
 
-This will start the Remix Vite development server.
+**Note**: You will need Google Chrome Canary to run this locally if you use Chrome! It's an easy install and a good browser for web development anyway.
 
 ## Testing
 
@@ -108,3 +122,96 @@ pnpm run deploy
 ```
 
 Make sure you have the necessary permissions and Wrangler is correctly configured for your Cloudflare account.
+
+# Docker Deployment Documentation
+
+This guide outlines various methods for building and deploying the application using Docker.
+
+## Build Methods
+
+### 1. Using Helper Scripts
+
+NPM scripts are provided for convenient building:
+
+```bash
+# Development build
+npm run dockerbuild
+
+# Production build
+npm run dockerbuild:prod
+```
+
+### 2. Direct Docker Build Commands
+
+You can use Docker's target feature to specify the build environment:
+
+```bash
+# Development build
+docker build . --target startgpt-development
+
+# Production build
+docker build . --target startgpt-production
+```
+
+### 3. Docker Compose with Profiles
+
+Use Docker Compose profiles to manage different environments:
+
+```bash
+# Development environment
+docker-compose --profile development up
+
+# Production environment
+docker-compose --profile production up
+```
+
+## Running the Application
+
+After building using any of the methods above, run the container with:
+
+```bash
+# Development
+docker run -p 5173:5173 --env-file .env.local startgpt:development
+
+# Production
+docker run -p 5173:5173 --env-file .env.local startgpt:production
+```
+
+## Deployment with Coolify
+
+[Coolify](https://github.com/coollabsio/coolify) provides a straightforward deployment process:
+
+1. Import your Git repository as a new project
+2. Select your target environment (development/production)
+3. Choose "Docker Compose" as the Build Pack
+4. Configure deployment domains
+5. Set the custom start command:
+   ```bash
+   docker compose --profile production up
+   ```
+6. Configure environment variables
+   - Add necessary AI API keys
+   - Adjust other environment variables as needed
+7. Deploy the application
+
+## VS Code Integration
+
+The `docker-compose.yaml` configuration is compatible with VS Code dev containers:
+
+1. Open the command palette in VS Code
+2. Select the dev container configuration
+3. Choose the "development" profile from the context menu
+
+## Environment Files
+
+Ensure you have the appropriate `.env.local` file configured before running the containers. This file should contain:
+- API keys
+- Environment-specific configurations
+- Other required environment variables
+
+## Notes
+
+- Port 5173 is exposed and mapped for both development and production environments
+- Environment variables are loaded from `.env.local`
+- Different profiles (development/production) can be used for different deployment scenarios
+- The configuration supports both local development and production deployment

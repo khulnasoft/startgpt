@@ -7,6 +7,7 @@ import type { ActionState } from '~/lib/runtime/action-runner';
 import { workbenchStore } from '~/lib/stores/workbench';
 import { classNames } from '~/utils/classNames';
 import { cubicEasingFn } from '~/utils/easings';
+import { WORK_DIR } from '~/utils/constants';
 
 const highlighterOptions = {
   langs: ['shell'],
@@ -129,6 +130,14 @@ const actionVariants = {
   visible: { opacity: 1, y: 0 },
 };
 
+function openArtifactInWorkbench(filePath: any) {
+  if (workbenchStore.currentView.get() !== 'code') {
+    workbenchStore.currentView.set('code');
+  }
+
+  workbenchStore.setSelectedFile(`${WORK_DIR}/${filePath}`);
+}
+
 const ActionList = memo(({ actions }: ActionListProps) => {
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.15 }}>
@@ -151,7 +160,13 @@ const ActionList = memo(({ actions }: ActionListProps) => {
               <div className="flex items-center gap-1.5 text-sm">
                 <div className={classNames('text-lg', getIconColor(action.status))}>
                   {status === 'running' ? (
-                    <div className="i-svg-spinners:90-ring-with-bg"></div>
+                    <>
+                      {type !== 'start' ? (
+                        <div className="i-svg-spinners:90-ring-with-bg"></div>
+                      ) : (
+                        <div className="i-ph:terminal-window-duotone"></div>
+                      )}
+                    </>
                   ) : status === 'pending' ? (
                     <div className="i-ph:circle-duotone"></div>
                   ) : status === 'complete' ? (
@@ -163,7 +178,10 @@ const ActionList = memo(({ actions }: ActionListProps) => {
                 {type === 'file' ? (
                   <div>
                     Create{' '}
-                    <code className="bg-startgpt-elements-artifacts-inlineCode-background text-startgpt-elements-artifacts-inlineCode-text px-1.5 py-1 rounded-md">
+                    <code
+                      className="bg-startgpt-elements-artifacts-inlineCode-background text-startgpt-elements-artifacts-inlineCode-text px-1.5 py-1 rounded-md text-startgpt-elements-item-contentAccent hover:underline cursor-pointer"
+                      onClick={() => openArtifactInWorkbench(action.filePath)}
+                    >
                       {action.filePath}
                     </code>
                   </div>
@@ -171,9 +189,19 @@ const ActionList = memo(({ actions }: ActionListProps) => {
                   <div className="flex items-center w-full min-h-[28px]">
                     <span className="flex-1">Run command</span>
                   </div>
+                ) : type === 'start' ? (
+                  <a
+                    onClick={(e) => {
+                      e.preventDefault();
+                      workbenchStore.currentView.set('preview');
+                    }}
+                    className="flex items-center w-full min-h-[28px]"
+                  >
+                    <span className="flex-1">Start Application</span>
+                  </a>
                 ) : null}
               </div>
-              {type === 'shell' && (
+              {(type === 'shell' || type === 'start') && (
                 <ShellCodeBlock
                   classsName={classNames('mt-1', {
                     'mb-3.5': !isLast,

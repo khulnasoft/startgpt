@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import type { ProviderInfo } from '~/types/model';
 import { createScopedLogger } from '~/utils/logger';
 
 const logger = createScopedLogger('usePromptEnhancement');
@@ -12,15 +13,29 @@ export function usePromptEnhancer() {
     setPromptEnhanced(false);
   };
 
-  const enhancePrompt = async (input: string, setInput: (value: string) => void) => {
+  const enhancePrompt = async (
+    input: string,
+    setInput: (value: string) => void,
+    model: string,
+    provider: ProviderInfo,
+    apiKeys?: Record<string, string>,
+  ) => {
     setEnhancingPrompt(true);
     setPromptEnhanced(false);
 
+    const requestBody: any = {
+      message: input,
+      model,
+      provider,
+    };
+
+    if (apiKeys) {
+      requestBody.apiKeys = apiKeys;
+    }
+
     const response = await fetch('/api/enhancer', {
       method: 'POST',
-      body: JSON.stringify({
-        message: input,
-      }),
+      body: JSON.stringify(requestBody),
     });
 
     const reader = response.body?.getReader();

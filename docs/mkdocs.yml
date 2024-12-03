@@ -1,4 +1,4 @@
-site_name: StartGPT Docs
+site_name: Startgpt.Local Docs
 site_dir: ../site
 theme:
   name: material
@@ -31,7 +31,7 @@ theme:
     repo: fontawesome/brands/github
   # logo: assets/logo.png
   # favicon: assets/logo.png
-repo_name: StartGPT
+repo_name: Startgpt.Local
 repo_url: https://github.com/khulnasoft/startgpt
 edit_uri: ""
 
@@ -40,10 +40,10 @@ extra:
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/khulnasoft/startgpt
-      name: StartGPT
+      name: Startgpt.Local
     - icon: fontawesome/brands/discourse
       link: https://thinktank.ottomator.ai/
-      name: StartGPT Discourse
+      name: Startgpt.Local Discourse
 
 
 markdown_extensions:
