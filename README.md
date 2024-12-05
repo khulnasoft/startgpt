@@ -40,7 +40,7 @@ https://thinktank.ottomator.ai
 - ✅ Together Integration (@mouimet-infinisoft)
 - ✅ Mobile friendly (@qwikode)
 - ✅ Better prompt enhancing (@SujalXplores)
-- ⬜ **HIGH PRIORITY** - ALMOST DONE - Attach images to prompts (@atrokhym)
+- ✅ Attach images to prompts
 - ⬜ **HIGH PRIORITY** - Prevent Startgpt from rewriting files as often (file locking and diffs)
 - ⬜ **HIGH PRIORITY** - Better prompting for smaller LLMs (code window sometimes doesn't start)
 - ⬜ **HIGH PRIORITY** - Run agents in the backend as opposed to a single model call
@@ -52,6 +52,9 @@ https://thinktank.ottomator.ai
 - ⬜ VSCode Integration with git-like confirmations
 - ⬜ Upload documents for knowledge - UI design templates, a code base to reference coding style, etc.
 - ⬜ Voice prompting
+- ⬜ Azure Open AI API Integration
+- ⬜ Perplexity Integration
+- ⬜ Vertex AI Integration
 
 ## Startgpt.new: AI-Powered Full-Stack Web Development in the Browser
 
