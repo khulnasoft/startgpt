@@ -1,5 +1,6 @@
 import type { ProviderInfo } from '~/types/model';
 import type { ModelInfo } from '~/utils/types';
+
 interface ModelSelectorProps {
   model?: string;
   setModel?: (model: string) => void;
@@ -9,6 +10,7 @@ interface ModelSelectorProps {
   providerList: ProviderInfo[];
   apiKeys: Record<string, string>;
 }
+
 export const ModelSelector = ({
   model,
   setModel,
@@ -23,10 +25,13 @@ export const ModelSelector = ({
         value={provider?.name ?? ''}
         onChange={(e) => {
           const newProvider = providerList.find((p: ProviderInfo) => p.name === e.target.value);
+
           if (newProvider && setProvider) {
             setProvider(newProvider);
           }
+
           const firstModel = [...modelList].find((m) => m.provider === e.target.value);
+
           if (firstModel && setModel) {
             setModel(firstModel.name);
           }

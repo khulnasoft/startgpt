@@ -24,17 +24,19 @@ export function Header() {
           <span className="i-startgpt:logo-text?mask w-[46px] inline-block" />
         </a>
       </div>
-      <span className="flex-1 px-4 truncate text-center text-startgpt-elements-textPrimary">
-        <ClientOnly>{() => <ChatDescription />}</ClientOnly>
-      </span>
-      {chat.started && (
-        <ClientOnly>
-          {() => (
-            <div className="mr-1">
-              <HeaderActionButtons />
-            </div>
-          )}
-        </ClientOnly>
+      {chat.started && ( // Display ChatDescription and HeaderActionButtons only when the chat has started.
+        <>
+          <span className="flex-1 px-4 truncate text-center text-startgpt-elements-textPrimary">
+            <ClientOnly>{() => <ChatDescription />}</ClientOnly>
+          </span>
+          <ClientOnly>
+            {() => (
+              <div className="mr-1">
+                <HeaderActionButtons />
+              </div>
+            )}
+          </ClientOnly>
+        </>
       )}
     </header>
   );

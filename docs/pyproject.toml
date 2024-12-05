@@ -2,7 +2,7 @@
 name = "docs"
 version = "0.1.0"
 description = ""
-authors = ["Anirban Kar <thecodacus@gmail.com>"]
+authors = ["Md Sulaiman <dev.sulaiman@icloud.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]

@@ -6,7 +6,10 @@
 
   --cm-gutter-backgroundColor: var(--startgpt-elements-editor-gutter-backgroundColor, var(--cm-backgroundColor));
   --cm-gutter-textColor: var(--startgpt-elements-editor-gutter-textColor, var(--startgpt-elements-textSecondary));
-  --cm-gutter-activeLineTextColor: var(--startgpt-elements-editor-gutter-activeLineTextColor, var(--cm-gutter-textColor));
+  --cm-gutter-activeLineTextColor: var(
+    --startgpt-elements-editor-gutter-activeLineTextColor,
+    var(--cm-gutter-textColor)
+  );
 
   /* Fold Gutter */
 
@@ -41,7 +44,10 @@
 
   --cm-search-backgroundColor: var(--startgpt-elements-editor-search-backgroundColor, var(--cm-backgroundColor));
   --cm-search-textColor: var(--startgpt-elements-editor-search-textColor, var(--startgpt-elements-textSecondary));
-  --cm-search-closeButton-backgroundColor: var(--startgpt-elements-editor-search-closeButton-backgroundColor, transparent);
+  --cm-search-closeButton-backgroundColor: var(
+    --startgpt-elements-editor-search-closeButton-backgroundColor,
+    transparent
+  );
 
   --cm-search-closeButton-backgroundColorHover: var(
     --startgpt-elements-editor-search-closeButton-backgroundColorHover,
@@ -68,7 +74,10 @@
     var(--startgpt-elements-item-backgroundActive)
   );
 
-  --cm-search-button-textColor: var(--startgpt-elements-editor-search-button-textColor, var(--startgpt-elements-textSecondary));
+  --cm-search-button-textColor: var(
+    --startgpt-elements-editor-search-button-textColor,
+    var(--startgpt-elements-textSecondary)
+  );
 
   --cm-search-button-textColorHover: var(
     --startgpt-elements-editor-search-button-textColorHover,
@@ -84,8 +93,14 @@
   );
 
   --cm-search-input-backgroundColor: var(--startgpt-elements-editor-search-input-backgroundColor, transparent);
-  --cm-search-input-textColor: var(--startgpt-elements-editor-search-input-textColor, var(--startgpt-elements-textPrimary));
-  --cm-search-input-borderColor: var(--startgpt-elements-editor-search-input-borderColor, var(--startgpt-elements-borderColor));
+  --cm-search-input-textColor: var(
+    --startgpt-elements-editor-search-input-textColor,
+    var(--startgpt-elements-textPrimary)
+  );
+  --cm-search-input-borderColor: var(
+    --startgpt-elements-editor-search-input-borderColor,
+    var(--startgpt-elements-borderColor)
+  );
 
   --cm-search-input-borderColorFocused: var(
     --startgpt-elements-editor-search-input-borderColorFocused,

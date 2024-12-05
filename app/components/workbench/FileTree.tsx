@@ -190,7 +190,8 @@ function File({ file: { depth, name }, onClick, selected, unsavedChanges = false
   return (
     <NodeButton
       className={classNames('group', {
-        'bg-transparent hover:bg-startgpt-elements-item-backgroundActive text-startgpt-elements-item-contentDefault': !selected,
+        'bg-transparent hover:bg-startgpt-elements-item-backgroundActive text-startgpt-elements-item-contentDefault':
+          !selected,
         'bg-startgpt-elements-item-backgroundAccent text-startgpt-elements-item-contentAccent': selected,
       })}
       depth={depth}

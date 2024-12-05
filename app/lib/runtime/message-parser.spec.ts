@@ -43,7 +43,10 @@ describe('StreamingMessageParser', () => {
       ['Foo bar <startgptA', 'Foo bar '],
       ['Foo bar <startgptArtifacs></startgptArtifact>', 'Foo bar <startgptArtifacs></startgptArtifact>'],
       ['Before <oltArtfiact>foo</startgptArtifact> After', 'Before <oltArtfiact>foo</startgptArtifact> After'],
-      ['Before <startgptArtifactt>foo</startgptArtifact> After', 'Before <startgptArtifactt>foo</startgptArtifact> After'],
+      [
+        'Before <startgptArtifactt>foo</startgptArtifact> After',
+        'Before <startgptArtifactt>foo</startgptArtifact> After',
+      ],
     ])('should correctly parse chunks and strip out startgpt artifacts (%#)', (input, expected) => {
       runTest(input, expected);
     });
@@ -59,7 +62,11 @@ describe('StreamingMessageParser', () => {
         },
       ],
       [
-        ['Some text before <startgptArti', 'fact', ' title="Some title" id="artifact_1">foo</startgptArtifact> Some more text'],
+        [
+          'Some text before <startgptArti',
+          'fact',
+          ' title="Some title" id="artifact_1">foo</startgptArtifact> Some more text',
+        ],
         {
           output: 'Some text before  Some more text',
           callbacks: { onArtifactOpen: 1, onArtifactClose: 1, onActionOpen: 0, onActionClose: 0 },
