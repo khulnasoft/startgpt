@@ -1,8 +1,8 @@
-[![Startgpt.new: AI-Powered Full-Stack Web Development in the Browser](./public/social_preview_index.jpg)](https://startgpt.new)
+[![Startgpt: AI-Powered Full-Stack Web Development in the Browser](./public/social_preview_index.jpg)](https://startgpt)
 
-# Startgpt.new Fork by Cole Medin - oTToDev
+# Startgpt Fork by Cole Medin - oTToDev
 
-This fork of Startgpt.new (oTToDev) allows you to choose the LLM that you use for each prompt! Currently, you can use OpenAI, Anthropic, Ollama, OpenRouter, Gemini, LMStudio, Mistral, xAI, HuggingFace, DeepSeek, or Groq models - and it is easily extended to use any other model supported by the Vercel AI SDK! See the instructions below for running this locally and extending it to include more models.
+This fork of Startgpt (oTToDev) allows you to choose the LLM that you use for each prompt! Currently, you can use OpenAI, Anthropic, Ollama, OpenRouter, Gemini, LMStudio, Mistral, xAI, HuggingFace, DeepSeek, or Groq models - and it is easily extended to use any other model supported by the Vercel AI SDK! See the instructions below for running this locally and extending it to include more models.
 
 Check the [oTToDev Docs](https://khulnasoft.github.io/startgpt/) for more information.
 
@@ -18,7 +18,7 @@ https://thinktank.ottomator.ai
 - ✅ Autogenerate Ollama models from what is downloaded (@yunatamos)
 - ✅ Filter models by provider (@jasonm23)
 - ✅ Download project as ZIP (@fabwaseem)
-- ✅ Improvements to the main Startgpt.new prompt in `app\lib\.server\llm\prompts.ts` (@kofi-bhr)
+- ✅ Improvements to the main Startgpt prompt in `app\lib\.server\llm\prompts.ts` (@kofi-bhr)
 - ✅ DeepSeek API Integration (@zenith110)
 - ✅ Mistral API Integration (@ArulGandhi)
 - ✅ "Open AI Like" API Integration (@ZerxZ)
@@ -40,13 +40,11 @@ https://thinktank.ottomator.ai
 - ✅ Together Integration (@mouimet-infinisoft)
 - ✅ Mobile friendly (@qwikode)
 - ✅ Better prompt enhancing (@SujalXplores)
-- ✅ Attach images to prompts
+- ✅ Attach images to prompts (@atrokhym)
+- ✅ Detect package.json and commands to auto install and run preview for folder and git import (@wonderwhy-er)
 - ⬜ **HIGH PRIORITY** - Prevent Startgpt from rewriting files as often (file locking and diffs)
 - ⬜ **HIGH PRIORITY** - Better prompting for smaller LLMs (code window sometimes doesn't start)
 - ⬜ **HIGH PRIORITY** - Run agents in the backend as opposed to a single model call
-- ⬜ Azure Open AI API Integration
-- ⬜ Perplexity Integration
-- ⬜ Vertex AI Integration
 - ⬜ Deploy directly to Vercel/Netlify/other similar platforms
 - ⬜ Have LLM plan the project in a MD file for better results/transparency
 - ⬜ VSCode Integration with git-like confirmations
@@ -56,24 +54,24 @@ https://thinktank.ottomator.ai
 - ⬜ Perplexity Integration
 - ⬜ Vertex AI Integration
 
-## Startgpt.new: AI-Powered Full-Stack Web Development in the Browser
+## Startgpt: AI-Powered Full-Stack Web Development in the Browser
 
-Startgpt.new is an AI-powered web development agent that allows you to prompt, run, edit, and deploy full-stack applications directly from your browser—no local setup required. If you're here to build your own AI-powered web dev agent using the Startgpt open source codebase, [click here to get started!](./CONTRIBUTING.md)
+Startgpt is an AI-powered web development agent that allows you to prompt, run, edit, and deploy full-stack applications directly from your browser—no local setup required. If you're here to build your own AI-powered web dev agent using the Startgpt open source codebase, [click here to get started!](./CONTRIBUTING.md)
 
-## What Makes Startgpt.new Different
+## What Makes Startgpt Different
 
-Claude, v0, etc are incredible- but you can't install packages, run backends, or edit code. That’s where Startgpt.new stands out:
+Claude, v0, etc are incredible- but you can't install packages, run backends, or edit code. That’s where Startgpt stands out:
 
-- **Full-Stack in the Browser**: Startgpt.new integrates cutting-edge AI models with an in-browser development environment powered by **StackBlitz’s WebContainers**. This allows you to:
+- **Full-Stack in the Browser**: Startgpt integrates cutting-edge AI models with an in-browser development environment powered by **KhulnaSoft’s WebContainers**. This allows you to:
   - Install and run npm tools and libraries (like Vite, Next.js, and more)
   - Run Node.js servers
   - Interact with third-party APIs
   - Deploy to production from chat
   - Share your work via a URL
 
-- **AI with Environment Control**: Unlike traditional dev environments where the AI can only assist in code generation, Startgpt.new gives AI models **complete control** over the entire  environment including the filesystem, node server, package manager, terminal, and browser console. This empowers AI agents to handle the whole app lifecycle—from creation to deployment.
+- **AI with Environment Control**: Unlike traditional dev environments where the AI can only assist in code generation, Startgpt gives AI models **complete control** over the entire  environment including the filesystem, node server, package manager, terminal, and browser console. This empowers AI agents to handle the whole app lifecycle—from creation to deployment.
 
-Whether you’re an experienced developer, a PM, or a designer, Startgpt.new allows you to easily build production-grade full-stack applications.
+Whether you’re an experienced developer, a PM, or a designer, Startgpt allows you to easily build production-grade full-stack applications.
 
 For developers interested in building their own AI-powered development tools with WebContainers, check out the open-source Startgpt codebase in this repo!
 
@@ -164,10 +162,10 @@ You can use Docker's target feature to specify the build environment instead of 
 
 ```bash
 # Development build
-docker build . --target startgpt-development
+docker build . --target startgpt-ai-development
 
 # Production build
-docker build . --target startgpt-production
+docker build . --target startgpt-ai-production
 ```
 
 ### 2. Docker Compose with Profiles to Run the Container

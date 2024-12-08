@@ -1,6 +1,6 @@
-[![Startgpt.new: AI-Powered Full-Stack Web Development in the Browser](./public/social_preview_index.jpg)](https://startgpt.new)
+[![Startgpt: AI-Powered Full-Stack Web Development in the Browser](./public/social_preview_index.jpg)](https://startgpt)
 
-# Startgpt.new Fork by Cole Medin - oTToDev
+# Startgpt Fork by Cole Medin - oTToDev
 
 ## FAQ
 
@@ -14,7 +14,7 @@
 
 - **Batch simple instructions**: Save time by combining simple instructions into one message. For example, you can ask oTToDev to change the color scheme, add mobile responsiveness, and restart the dev server, all in one go saving you time and reducing API credit consumption significantly.
 
-### Do you plan on merging oTToDev back into the official Startgpt.new repo?
+### Do you plan on merging oTToDev back into the official Startgpt repo?
 
 More news coming on this coming early next month - stay tuned!
 
@@ -25,7 +25,7 @@ grew into a massive community project that I am working hard to keep up with the
 That effort is going well and all of our maintainers are ABSOLUTE rockstars, but it still takes time to organize everything so we can efficiently get through all
 the issues and PRs. But rest assured, we are working hard and even working on some partnerships behind the scenes to really help this project take off!
 
-### How do local LLMs fair compared to larger models like Claude 3.5 Sonnet for oTToDev/Startgpt.new?
+### How do local LLMs fair compared to larger models like Claude 3.5 Sonnet for oTToDev/Startgpt?
 
 As much as the gap is quickly closing between open source and massive close source models, you’re still going to get the best results with the very large models like GPT-4o, Claude 3.5 Sonnet, and DeepSeek Coder V2 236b. This is one of the big tasks we have at hand - figuring out how to prompt better, use agents, and improve the platform as a whole to make it work better for even the smaller local LLMs!
 
@@ -43,7 +43,7 @@ We promise you that we are constantly testing new PRs coming into oTToDev and th
 
 ### How to add a LLM:
 
-To make new LLMs available to use in this version of Startgpt.new, head on over to `app/utils/constants.ts` and find the constant MODEL_LIST. Each element in this array is an object that has the model ID for the name (get this from the provider's API documentation), a label for the frontend model dropdown, and the provider. 
+To make new LLMs available to use in this version of Startgpt, head on over to `app/utils/constants.ts` and find the constant MODEL_LIST. Each element in this array is an object that has the model ID for the name (get this from the provider's API documentation), a label for the frontend model dropdown, and the provider. 
 
 By default, Anthropic, OpenAI, Groq, and Ollama are implemented as providers, but the YouTube video for this repo covers how to extend this to work with more providers if you wish!
 

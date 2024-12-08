@@ -14,7 +14,7 @@
 
 [Please check out our dedicated page for contributing to oTToDev here!](CONTRIBUTING.md)
 
-### Do you plan on merging oTToDev back into the official Startgpt.new repo?
+### Do you plan on merging oTToDev back into the official Startgpt repo?
 
 More news coming on this coming early next month - stay tuned!
 
@@ -31,7 +31,7 @@ grew into a massive community project that I am working hard to keep up with the
 That effort is going well and all of our maintainers are ABSOLUTE rockstars, but it still takes time to organize everything so we can efficiently get through all
 the issues and PRs. But rest assured, we are working hard and even working on some partnerships behind the scenes to really help this project take off!
 
-### How do local LLMs fair compared to larger models like Claude 3.5 Sonnet for oTToDev/Startgpt.new?
+### How do local LLMs fair compared to larger models like Claude 3.5 Sonnet for oTToDev/Startgpt?
 
 As much as the gap is quickly closing between open source and massive close source models, you’re still going to get the best results with the very large models like GPT-4o, Claude 3.5 Sonnet, and DeepSeek Coder V2 236b. This is one of the big tasks we have at hand - figuring out how to prompt better, use agents, and improve the platform as a whole to make it work better for even the smaller local LLMs!
 

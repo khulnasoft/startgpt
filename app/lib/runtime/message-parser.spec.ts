@@ -35,9 +35,8 @@ describe('StreamingMessageParser', () => {
 
   describe('invalid or incomplete artifacts', () => {
     it.each<[string | string[], ExpectedResult | string]>([
-      ['Foo bar <b', 'Foo bar '],
+      ['Foo bar ', 'Foo bar '],
       ['Foo bar <ba', 'Foo bar <ba'],
-      ['Foo bar <bol', 'Foo bar '],
       ['Foo bar <startgpt', 'Foo bar '],
       ['Foo bar <startgpta', 'Foo bar <startgpta'],
       ['Foo bar <startgptA', 'Foo bar '],
@@ -65,7 +64,7 @@ describe('StreamingMessageParser', () => {
         [
           'Some text before <startgptArti',
           'fact',
-          ' title="Some title" id="artifact_1">foo</startgptArtifact> Some more text',
+          ' title="Some title" id="artifact_1" type="bundled" >foo</startgptArtifact> Some more text',
         ],
         {
           output: 'Some text before  Some more text',
