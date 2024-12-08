@@ -6,8 +6,8 @@ body:
       value: |
         Thank you for reporting an issue :pray:.
 
-        This issue tracker is for bugs and issues found with [Startgpt.new](https://startgpt.new).
-        If you experience issues related to WebContainer, please file an issue in our [WebContainer repo](https://github.com/stackblitz/webcontainer-core), or file an issue in our [StackBlitz core repo](https://github.com/stackblitz/core) for issues with StackBlitz.
+        This issue tracker is for bugs and issues found with [Startgpt](https://startgpt.khulnasoft.com).
+        If you experience issues related to WebContainer, please file an issue in our [WebContainer repo](https://github.com/khulnasoft/webcontainer-core), or file an issue in our [KhulnaSoft core repo](https://github.com/khulnasoft/core) for issues with KhulnaSoft.
 
         The more information you fill in, the better we can help you.
   - type: textarea
@@ -56,6 +56,16 @@ body:
         - OS: [e.g. macOS, Windows, Linux]
         - Browser: [e.g. Chrome, Safari, Firefox]
         - Version: [e.g. 91.1]
+  - type: input
+    id: provider
+    attributes:
+      label: Provider Used
+      description: Tell us the provider you are using.
+  - type: input
+    id: model
+    attributes:
+      label: Model Used
+      description: Tell us the model you are using.
   - type: textarea
     id: additional
     attributes:

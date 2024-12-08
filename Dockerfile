@@ -15,7 +15,7 @@ COPY . .
 EXPOSE 5173
 
 # Production image
-FROM base AS startgpt-production
+FROM base AS startgpt-ai-production
 
 # Define environment variables with default values or let them be overridden
 ARG GROQ_API_KEY
@@ -52,7 +52,7 @@ RUN npm run build
 CMD [ "pnpm", "run", "dockerstart"]
 
 # Development image
-FROM base AS startgpt-development
+FROM base AS startgpt-ai-development
 
 # Define the same environment variables for development
 ARG GROQ_API_KEY

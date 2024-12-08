@@ -147,10 +147,10 @@ You can use Docker's target feature to specify the build environment:
 
 ```bash
 # Development build
-docker build . --target startgpt-development
+docker build . --target startgpt-ai-development
 
 # Production build
-docker build . --target startgpt-production
+docker build . --target startgpt-ai-production
 ```
 
 ### 3. Docker Compose with Profiles
@@ -171,10 +171,10 @@ After building using any of the methods above, run the container with:
 
 ```bash
 # Development
-docker run -p 5173:5173 --env-file .env.local startgpt:development
+docker run -p 5173:5173 --env-file .env.local startgpt-ai:development
 
 # Production
-docker run -p 5173:5173 --env-file .env.local startgpt:production
+docker run -p 5173:5173 --env-file .env.local startgpt-ai:production
 ```
 
 ## Deployment with Coolify
