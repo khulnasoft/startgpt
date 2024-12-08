@@ -1,4 +1,4 @@
-[![Startgpt: AI-Powered Full-Stack Web Development in the Browser](./public/social_preview_index.jpg)](https://startgpt)
+[![Startgpt: AI-Powered Full-Stack Web Development in the Browser](./public/social_preview_index.jpg)](https://startgpt.khulnasoft.com)
 
 # Startgpt Fork by Cole Medin - oTToDev
 
