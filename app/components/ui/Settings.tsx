@@ -10,6 +10,7 @@ import { toast } from 'react-toastify';
 import { useNavigate } from '@remix-run/react';
 import commit from '~/commit.json';
 import Cookies from 'js-cookie';
+import { SettingsSlider } from './SettingsSlider';
 import '~/styles/components/SettingsSlider.scss';
 import '~/styles/components/Settings.scss';
 
