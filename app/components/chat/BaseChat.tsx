@@ -148,9 +148,6 @@ export const BaseChat = React.forwardRef<HTMLDivElement, BaseChatProps>(
     }, [PROVIDER_LIST]);
 
     useEffect(() => {
-      console.log(transcript);
-    }, [transcript]);
-    useEffect(() => {
       // Load API keys from cookies on component mount
       try {
         const storedApiKeys = Cookies.get('apiKeys');
