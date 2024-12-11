@@ -1,0 +1,9 @@
+.actions .shiki {
+  background-color: var(--startgpt-elements-actions-code-background) !important;
+}
+
+.shiki {
+  &:not(:has(.actions), .actions *) {
+    background-color: var(--startgpt-elements-messages-code-background) !important;
+  }
+}

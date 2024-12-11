@@ -1,0 +1,150 @@
+:root {
+  --cm-backgroundColor: var(--startgpt-elements-editor-backgroundColor, var(--startgpt-elements-bg-depth-1));
+  --cm-textColor: var(--startgpt-elements-editor-textColor, var(--startgpt-elements-textPrimary));
+
+  /* Gutter */
+
+  --cm-gutter-backgroundColor: var(--startgpt-elements-editor-gutter-backgroundColor, var(--cm-backgroundColor));
+  --cm-gutter-textColor: var(--startgpt-elements-editor-gutter-textColor, var(--startgpt-elements-textSecondary));
+  --cm-gutter-activeLineTextColor: var(
+    --startgpt-elements-editor-gutter-activeLineTextColor,
+    var(--cm-gutter-textColor)
+  );
+
+  /* Fold Gutter */
+
+  --cm-foldGutter-textColor: var(--startgpt-elements-editor-foldGutter-textColor, var(--cm-gutter-textColor));
+  --cm-foldGutter-textColorHover: var(--startgpt-elements-editor-foldGutter-textColorHover, var(--cm-gutter-textColor));
+
+  /* Active Line */
+
+  --cm-activeLineBackgroundColor: var(--startgpt-elements-editor-activeLineBackgroundColor, rgb(224 231 235 / 30%));
+
+  /* Cursor */
+
+  --cm-cursor-width: 2px;
+  --cm-cursor-backgroundColor: var(--startgpt-elements-editor-cursorColor, var(--startgpt-elements-textSecondary));
+
+  /* Matching Brackets */
+
+  --cm-matching-bracket: var(--startgpt-elements-editor-matchingBracketBackgroundColor, rgb(50 140 130 / 0.3));
+
+  /* Selection */
+
+  --cm-selection-backgroundColorFocused: var(--startgpt-elements-editor-selection-backgroundColor, #42b4ff);
+  --cm-selection-backgroundOpacityFocused: var(--startgpt-elements-editor-selection-backgroundOpacity, 0.3);
+  --cm-selection-backgroundColorBlured: var(--startgpt-elements-editor-selection-inactiveBackgroundColor, #c9e9ff);
+  --cm-selection-backgroundOpacityBlured: var(--startgpt-elements-editor-selection-inactiveBackgroundOpacity, 0.3);
+
+  /* Panels */
+
+  --cm-panels-borderColor: var(--startgpt-elements-editor-panels-borderColor, var(--startgpt-elements-borderColor));
+
+  /* Search */
+
+  --cm-search-backgroundColor: var(--startgpt-elements-editor-search-backgroundColor, var(--cm-backgroundColor));
+  --cm-search-textColor: var(--startgpt-elements-editor-search-textColor, var(--startgpt-elements-textSecondary));
+  --cm-search-closeButton-backgroundColor: var(
+    --startgpt-elements-editor-search-closeButton-backgroundColor,
+    transparent
+  );
+
+  --cm-search-closeButton-backgroundColorHover: var(
+    --startgpt-elements-editor-search-closeButton-backgroundColorHover,
+    var(--startgpt-elements-item-backgroundActive)
+  );
+
+  --cm-search-closeButton-textColor: var(
+    --startgpt-elements-editor-search-closeButton-textColor,
+    var(--startgpt-elements-item-contentDefault)
+  );
+
+  --cm-search-closeButton-textColorHover: var(
+    --startgpt-elements-editor-search-closeButton-textColorHover,
+    var(--startgpt-elements-item-contentActive)
+  );
+
+  --cm-search-button-backgroundColor: var(
+    --startgpt-elements-editor-search-button-backgroundColor,
+    var(--startgpt-elements-item-backgroundDefault)
+  );
+
+  --cm-search-button-backgroundColorHover: var(
+    --startgpt-elements-editor-search-button-backgroundColorHover,
+    var(--startgpt-elements-item-backgroundActive)
+  );
+
+  --cm-search-button-textColor: var(
+    --startgpt-elements-editor-search-button-textColor,
+    var(--startgpt-elements-textSecondary)
+  );
+
+  --cm-search-button-textColorHover: var(
+    --startgpt-elements-editor-search-button-textColorHover,
+    var(--startgpt-elements-textPrimary)
+  );
+
+  --cm-search-button-borderColor: var(--startgpt-elements-editor-search-button-borderColor, transparent);
+  --cm-search-button-borderColorHover: var(--startgpt-elements-editor-search-button-borderColorHover, transparent);
+
+  --cm-search-button-borderColorFocused: var(
+    --startgpt-elements-editor-search-button-borderColorFocused,
+    var(--startgpt-elements-borderColorActive)
+  );
+
+  --cm-search-input-backgroundColor: var(--startgpt-elements-editor-search-input-backgroundColor, transparent);
+  --cm-search-input-textColor: var(
+    --startgpt-elements-editor-search-input-textColor,
+    var(--startgpt-elements-textPrimary)
+  );
+  --cm-search-input-borderColor: var(
+    --startgpt-elements-editor-search-input-borderColor,
+    var(--startgpt-elements-borderColor)
+  );
+
+  --cm-search-input-borderColorFocused: var(
+    --startgpt-elements-editor-search-input-borderColorFocused,
+    var(--startgpt-elements-borderColorActive)
+  );
+
+  /* Tooltip */
+
+  --cm-tooltip-backgroundColor: var(--startgpt-elements-editor-tooltip-backgroundColor, var(--cm-backgroundColor));
+  --cm-tooltip-textColor: var(--startgpt-elements-editor-tooltip-textColor, var(--startgpt-elements-textPrimary));
+
+  --cm-tooltip-backgroundColorSelected: var(
+    --startgpt-elements-editor-tooltip-backgroundColorSelected,
+    theme('colors.alpha.accent.30')
+  );
+
+  --cm-tooltip-textColorSelected: var(
+    --startgpt-elements-editor-tooltip-textColorSelected,
+    var(--startgpt-elements-textPrimary)
+  );
+
+  --cm-tooltip-borderColor: var(--startgpt-elements-editor-tooltip-borderColor, var(--startgpt-elements-borderColor));
+
+  --cm-searchMatch-backgroundColor: var(--startgpt-elements-editor-searchMatch-backgroundColor, rgba(234, 92, 0, 0.33));
+}
+
+html[data-theme='light'] {
+  --startgpt-elements-editor-gutter-textColor: #237893;
+  --startgpt-elements-editor-gutter-activeLineTextColor: var(--startgpt-elements-textPrimary);
+  --startgpt-elements-editor-foldGutter-textColorHover: var(--startgpt-elements-textPrimary);
+  --startgpt-elements-editor-activeLineBackgroundColor: rgb(50 53 63 / 5%);
+  --startgpt-elements-editor-tooltip-backgroundColorSelected: theme('colors.alpha.accent.20');
+  --startgpt-elements-editor-search-button-backgroundColor: theme('colors.gray.100');
+  --startgpt-elements-editor-search-button-backgroundColorHover: theme('colors.alpha.gray.10');
+}
+
+html[data-theme='dark'] {
+  --cm-backgroundColor: var(--startgpt-elements-bg-depth-2);
+  --startgpt-elements-editor-gutter-textColor: var(--startgpt-elements-textTertiary);
+  --startgpt-elements-editor-gutter-activeLineTextColor: var(--startgpt-elements-textSecondary);
+  --startgpt-elements-editor-selection-inactiveBackgroundOpacity: 0.3;
+  --startgpt-elements-editor-activeLineBackgroundColor: rgb(50 53 63 / 50%);
+  --startgpt-elements-editor-foldGutter-textColorHover: var(--startgpt-elements-textPrimary);
+  --startgpt-elements-editor-matchingBracketBackgroundColor: rgba(66, 180, 255, 0.3);
+  --startgpt-elements-editor-search-button-backgroundColor: theme('colors.gray.800');
+  --startgpt-elements-editor-search-button-backgroundColorHover: theme('colors.alpha.white.10');
+}
